@@ -8,14 +8,14 @@ const resolve = dir => {
   return path.resolve(__dirname, dir);
 };
 const name = defaultSettings.title || "vant-demo"; // 标题
-// 项目部署基础
-// 默认情况下，我们假设你的应用将被部署在域的根目录下,
-// 例如：https://www.my-app.com/
-// 默认：'/'
-// 如果您的应用程序部署在子路径中，则需要在这指定子路径
-// 例如：https://www.foobar.com/my-app/
-// 需要将它改为'/my-app/'
-// iview-admin线上演示打包路径： https://file.iviewui.com/admin-dist/
+/**
+ * PUBLIC_PATH  项目部署基础目录
+ * 默认情况下，我们假设你的应用将被部署在域的根目录下
+ * 例如：https://XXX.com/
+ * 如果您的应用程序部署在子路径中，则需要在这指定子路径
+ * 例如：https://XXX.com/app
+ * PUBLIC_PATH需要改为  '/app/'
+ */
 const PUBLIC_PATH = "/";
 
 module.exports = {
@@ -28,21 +28,50 @@ module.exports = {
   outputDir: "dist",
   // 如果你不需要使用eslint，把lintOnSave设为false即可
   lintOnSave: true,
+  // webpack配置
+
+  //  chainWebpack 对内部的 webpack 配置（比如修改、增加Loader选项）(链式操作)
+  // chainWebpack: config => {
+  // config.resolve.alias
+  //   .set('@', join('src')) // key,value自行定义，比如.set('@', join('src/components'))
+  //   .set('_c', join('src/components'))
+  // }
+  configureWebpack: config => {
+    config.name = name;
+    config.entry.app = ["babel-polyfill", "./src/main.js"];
+    config.resolve = {
+      extensions: [".js", ".vue", ".json", ".css"],
+      // 配置路径别名
+      alias: {
+        "@": join("src"),
+        _c: join("src/components"),
+        vue$: "vue/dist/vue.esm.js"
+      }
+    };
+
+    // 关闭 webpack 的性能提示
+    config.performance = {
+      hints: false
+    };
+  },
+  // css相关配置
   css: {
+    // 是否使用css分离插件 ExtractTextPlugin
+    extract: true,
+    // 开启 CSS source maps?
+    sourceMap: false,
+    // css预设器配置项
     loaderOptions: {
-      // 向 CSS 相关的 loader 传递选项
       less: {
         modifyVars: {
-          // "button-default-height": "55px",
-          // "button-primary-color": "#111",
-          // "button-primary-background-color": "#eee",
-          // "button-primary-border-color": "#ccc"
-          // 或者可以通过 less 文件覆盖（文件路径为绝对路径）
+          // 可以通过 less 文件覆盖（文件路径为绝对路径）
           hack: `true; @import "${resolve("src/styles/theme.less")}";`
         },
         javascriptEnabled: true
       }
-    }
+    },
+    // 启用 CSS modules for all css / pre-processor files.
+    modules: false
   },
   // 这里写你调用接口的基础路径，来解决跨域，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
   devServer: {
@@ -59,29 +88,5 @@ module.exports = {
     //   },
     // },
     // }
-  },
-  //  chainWebpack 对内部的 webpack 配置（比如修改、增加Loader选项）(链式操作)
-  // chainWebpack: config => {
-  // config.resolve.alias
-  //   .set('@', join('src')) // key,value自行定义，比如.set('@', join('src/components'))
-  //   .set('_c', join('src/components'))
-  // },
-  // webpack配置
-  configureWebpack: config => {
-    config.name = name;
-    config.resolve = {
-      extensions: [".js", ".vue", ".json", ".css"],
-
-      alias: {
-        "@": join("src"),
-        _c: join("src/components"),
-        vue$: "vue/dist/vue.esm.js"
-      }
-    };
-
-    // 关闭 webpack 的性能提示
-    config.performance = {
-      hints: false
-    };
   }
 };

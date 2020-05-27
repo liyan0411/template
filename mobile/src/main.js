@@ -4,7 +4,6 @@ import "vant/lib/index.less";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import "@babel/polyfill";
 import qa from "./api";
 
 Vue.prototype.qa = qa;

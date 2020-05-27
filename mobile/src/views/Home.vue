@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <div class="container">1111</div>
     <van-button type="primary">主要按钮</van-button>
     <van-tabbar v-model="active">
       <van-tabbar-item icon="home-o">标签</van-tabbar-item>
@@ -35,3 +36,9 @@ export default {
   }
 };
 </script>
+<style lang="less">
+.container {
+  height: 20px;
+  background: @theme-color;
+}
+</style>
