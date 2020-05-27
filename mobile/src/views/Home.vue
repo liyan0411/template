@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <van-button type="primary">主要按钮</van-button>
     <van-tabbar v-model="active">
       <van-tabbar-item icon="home-o">标签</van-tabbar-item>
       <van-tabbar-item icon="search">标签</van-tabbar-item>
