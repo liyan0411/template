@@ -6,7 +6,7 @@
       <van-tabbar-item replace to="/index" icon="home-o">
         首页
       </van-tabbar-item>
-      <van-tabbar-item replace to="/list" icon="search">
+      <van-tabbar-item replace to="/lists" icon="search">
         列表
       </van-tabbar-item>
     </van-tabbar>
@@ -29,7 +29,7 @@ export default {
       name: "admin01",
       password: md5("123456")
     };
-    this.qa.login.home({
+    this.$api.login.home({
       data: req,
       success(res) {
         console.log(1, res);

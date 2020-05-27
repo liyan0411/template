@@ -16,8 +16,8 @@ const routes = [
           import(/* webpackChunkName: "index" */ "@/views/tabBar/index.vue")
       },
       {
-        path: "/list",
-        name: "list",
+        path: "/lists",
+        name: "lists",
         component: () =>
           import(/* webpackChunkName: "list" */ "@/views/tabBar/list.vue")
       }

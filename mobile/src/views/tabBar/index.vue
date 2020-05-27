@@ -1,6 +1,6 @@
 <template>
   <div>
-    我是首页
+    我是首页111
     <van-skeleton title avatar :row="3" :loading="loading">
       <div>实际内容</div>
     </van-skeleton>

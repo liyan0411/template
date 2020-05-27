@@ -1,12 +1,12 @@
 import Vue from "vue";
-import { Button, Tabbar, TabbarItem, List, Cell, Skeleton } from "vant";
-import "vant/lib/index.less";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import qa from "./api";
+import { Button, Tabbar, TabbarItem, List, Cell, Skeleton } from "vant";
+import "vant/lib/index.less";
+import api from "./api";
 
-Vue.prototype.qa = qa;
+Vue.prototype.$api = api;
 Vue.use(Button);
 Vue.use(Tabbar);
 Vue.use(TabbarItem);

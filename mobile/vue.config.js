@@ -1,11 +1,7 @@
 const path = require("path");
-
 const defaultSettings = require("./src/config/index.js");
-const join = dir => {
-  return path.join(__dirname, dir);
-};
 const resolve = dir => {
-  return path.resolve(__dirname, dir);
+  return path.join(__dirname, dir);
 };
 const name = defaultSettings.title || "vant-demo"; // 标题
 /**
@@ -43,12 +39,11 @@ module.exports = {
       extensions: [".js", ".vue", ".json", ".css"],
       // 配置路径别名
       alias: {
-        "@": join("src"),
-        _c: join("src/components"),
+        "@": resolve("src"),
+        _c: resolve("src/components"),
         vue$: "vue/dist/vue.esm.js"
       }
     };
-
     // 关闭 webpack 的性能提示
     config.performance = {
       hints: false
@@ -70,7 +65,7 @@ module.exports = {
         javascriptEnabled: true
       }
     },
-    // 启用 CSS modules for all css / pre-processor files.
+    // 启用 CSS modules for all css / pre-processor files. 代替 modules
     modules: false
   },
   // 这里写你调用接口的基础路径，来解决跨域，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
