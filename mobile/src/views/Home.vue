@@ -1,12 +1,14 @@
 <template>
   <div class="home">
-    <div class="container">1111</div>
-    <van-button type="primary">主要按钮</van-button>
-    <van-tabbar v-model="active">
-      <van-tabbar-item icon="home-o">标签</van-tabbar-item>
-      <van-tabbar-item icon="search">标签</van-tabbar-item>
-      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-      <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+    <router-view />
+
+    <van-tabbar route>
+      <van-tabbar-item replace to="/index" icon="home-o">
+        首页
+      </van-tabbar-item>
+      <van-tabbar-item replace to="/list" icon="search">
+        列表
+      </van-tabbar-item>
     </van-tabbar>
   </div>
 </template>

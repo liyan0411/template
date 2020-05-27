@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
@@ -8,12 +7,29 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: () => import(/* webpackChunkName: "Home" */ "@/views/Home.vue"),
+    children: [
+      {
+        path: "/index",
+        name: "index",
+        component: () =>
+          import(/* webpackChunkName: "index" */ "@/views/tabBar/index.vue")
+      },
+      {
+        path: "/list",
+        name: "list",
+        component: () =>
+          import(/* webpackChunkName: "list" */ "@/views/tabBar/list.vue")
+      }
+    ]
   },
   {
-    path: "/about",
-    name: "About",
-    component: () => import(/* webpackChunkName: "about" */ "@/views/About.vue")
+    path: "/listDetail",
+    name: "listDetail",
+    component: () =>
+      import(
+        /* webpackChunkName: "listDetail" */ "@/views/tabBar/listDetail.vue"
+      )
   }
 ];
 

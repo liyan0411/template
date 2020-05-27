@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { Button, Tabbar, TabbarItem } from "vant";
+import { Button, Tabbar, TabbarItem, List, Cell, Skeleton } from "vant";
 import "vant/lib/index.less";
 import App from "./App.vue";
 import router from "./router";
@@ -10,6 +10,9 @@ Vue.prototype.qa = qa;
 Vue.use(Button);
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
+Vue.use(List);
+Vue.use(Cell);
+Vue.use(Skeleton);
 Vue.config.productionTip = false;
 
 new Vue({
