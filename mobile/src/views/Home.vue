@@ -15,7 +15,7 @@
 
 <script>
 // @ is an alias to /src
-import md5 from "js-md5";
+// import md5 from "js-md5";
 export default {
   name: "Home",
   data() {
@@ -24,17 +24,17 @@ export default {
     };
   },
   created() {
-    this.qa.v(this);
-    let req = {
-      name: "admin01",
-      password: md5("123456")
-    };
-    this.$api.login.home({
-      data: req,
-      success(res) {
-        console.log(1, res);
-      }
-    });
+    // this.qa.v(this);
+    // let req = {
+    //   name: "admin01",
+    //   password: md5("123456")
+    // };
+    // this.$api.login.home({
+    //   data: req,
+    //   success(res) {
+    //     console.log(1, res);
+    //   }
+    // });
   }
 };
 </script>
