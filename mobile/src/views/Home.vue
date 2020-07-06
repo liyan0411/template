@@ -1,15 +1,6 @@
 <template>
   <div class="home">
-    <router-view />
-
-    <van-tabbar route>
-      <van-tabbar-item replace to="/index" icon="home-o">
-        首页
-      </van-tabbar-item>
-      <van-tabbar-item replace to="/lists" icon="search">
-        列表
-      </van-tabbar-item>
-    </van-tabbar>
+111
   </div>
 </template>
 
@@ -38,9 +29,7 @@ export default {
   }
 };
 </script>
-<style lang="less">
-.container {
-  height: 20px;
-  background: @theme-color;
-}
+<style lang="less" scoped>
+
+
 </style>

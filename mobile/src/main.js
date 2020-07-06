@@ -4,6 +4,8 @@ import router from "./router";
 import store from "./store";
 import { Button, Tabbar, TabbarItem, List, Cell, Skeleton } from "vant";
 import "vant/lib/index.less";
+import 'lib-flexible/flexible.js'
+// import "./style/theme.less"
 import api from "./api";
 
 Vue.prototype.$api = api;

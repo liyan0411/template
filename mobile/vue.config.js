@@ -3,7 +3,7 @@ const defaultSettings = require("./src/config/index.js");
 const resolve = dir => {
   return path.join(__dirname, dir);
 };
-console.log(process.env.NODE_ENV);
+// console.log(process.env.NODE_ENV);
 // const isPrd = ["prod", "prd", "production"].includes(process.env.NODE_ENV);
 
 const name = defaultSettings.title || "vant-demo"; // 标题
@@ -61,7 +61,7 @@ module.exports = {
       less: {
         modifyVars: {
           // 可以通过 less 文件覆盖（文件路径为绝对路径）
-          hack: `true; @import "${resolve("src/styles/theme.less")}";`
+          hack: `true; @import "${resolve("src/theme/index.less")}";`
         },
         javascriptEnabled: true
       }
