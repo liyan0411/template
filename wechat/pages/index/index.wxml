@@ -19,6 +19,7 @@
   </view>
   <view class="usermotto">
     <van-button type="primary">默认按钮</van-button>
-    <text class="user-motto">{{motto}}</text>
+    <text class="iconfont icon-shouye"></text>
+    <text class="user-motto ">{{motto}}</text>
   </view>
 </view>
