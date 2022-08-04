@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<navigation title="4月24日">
+</navigation>
 <view class="container">
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
